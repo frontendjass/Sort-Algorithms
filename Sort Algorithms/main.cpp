@@ -4,6 +4,8 @@
 #include <fstream>
 #include <chrono>
 
+#include "algorithm functions.hpp"
+
 int main() {
     const int SIZE = 10000;
     int numbers[SIZE];
@@ -33,16 +35,7 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now();
     
     // Bubble sort implementation
-    for (int i = 0; i < count - 1; i++) {
-        for (int j = 0; j < count - i - 1; j++) {
-            if (numbers[j] > numbers[j + 1]) {
-                // Swap the elements
-                int temp = numbers[j];
-                numbers[j] = numbers[j + 1];
-                numbers[j + 1] = temp;
-            }
-        }
-    }
+    BubbleSort(numbers, SIZE, count);
     
     // End timing
     auto end = std::chrono::high_resolution_clock::now();
